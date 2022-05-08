@@ -44,7 +44,8 @@
             <p>
                 LinkedIn: <a class="website" href="https://www.linkedin.com/in/erikjjohansson/">ErikJJohansson</a><br />
                 GitHub: <a class="website" href="https://github.com/ErikJJohansson">ErikJJohansson</a><br />
-                Email: <a class="email" href="mailto:hello@erikjohansson.ca">hello@erikjohansson.ca</a>
+                Email: <a class="email" href="mailto:hello@erikjohansson.ca">hello@erikjohansson.ca</a><br />
+                Visitors: <span id="visitorcount" />
             </p>
         </div>
                 
@@ -127,6 +128,7 @@
             <dd>CompTIA Network+</dd>
             
             <dd class="clear"></dd>
+
         </dl>
         
         <div class="clear"></div>
@@ -135,8 +137,19 @@
         <img src="images/CompTIA_NetPlus.png" alt="CompTIA Network+">
         <img src="images/CompTIA_APlus.png" alt="CompTIA A+">
     
+        <script type = "text/javascript">
+            var apiUrl = "https://9ir2mn9joa.execute-api.us-east-1.amazonaws.com/Prod/getcount";
+              fetch(apiUrl)
+              .then(response => response.json())
+              .then(data =>{
+                  document.getElementById('visitorcount').innerText = data.count
+            console.log(data)});
+          </script>
+
     </div>
 
 </body>
 
 </html>
+
+
